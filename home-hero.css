@@ -1,0 +1,251 @@
+/* The introductory composition sits inside the central header's exact width. */
+.hc-research-home .hc-home-page { width:100%; margin:0; }
+
+.hc-home-hero {
+  position:relative;
+  width:100%;
+  margin-top:12px; /* Doubles the visible separation from the fixed top navigation. */
+  /* The actual opaque bounds of the supplied wordmark are 1885 x 904 px.
+     Keeping this ratio aligns the sculpture and lettering to the field edges. */
+  aspect-ratio:1885 / 904;
+  overflow:hidden;
+  isolation:isolate;
+}
+
+/* The new author's image includes both sculpture and project wordmark. */
+.hc-home-art {
+  position:absolute;
+  z-index:1;
+  inset:0;
+  width:100%;
+  height:100%;
+  margin:0;
+  line-height:0;
+  pointer-events:none;
+}
+
+.hc-home-art img {
+  position:absolute;
+  top:0;
+  left:0;
+  display:block;
+  width:108.5941644562%; /* 2047 / 1885: preserve the supplied alpha margins. */
+  height:auto;
+  max-width:none;
+  max-height:none;
+  transform:translate(-3.5661944309%, -2.4856596558%);
+}
+
+/* Introductory text sits above the wordmark, aligned to its right edge. */
+.hc-home-copy {
+  position:absolute;
+  z-index:2;
+  right:0;
+  bottom:calc(15.7% + 19.6px);
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  width:68%;
+}
+
+.hc-home-description {
+  --hc-home-corpus-width:218.5px; /* Four 49px header cards with 7.5px gaps; updated from actual measured width. */
+  display:grid;
+  grid-template-columns:minmax(0,1fr) var(--hc-home-corpus-width);
+  align-items:end;
+  column-gap:25px;
+  row-gap:9px;
+  width:100%;
+  max-width:620px;
+  margin:0;
+  color:var(--ink);
+  text-align:left;
+  font:400 15.5px/1.08 var(--hc-reading-font, 'American Typewriter', Georgia, serif);
+  letter-spacing:-.018em;
+  text-wrap:pretty;
+}
+
+.hc-home-description p {
+  margin:0;
+  text-align:left;
+  text-wrap:balance;
+}
+/* A deliberate typographic line break, preserving every word of the author text. */
+.hc-home-theory-ending { display:block; }
+/* Three saved author changes from Workshop v52/A.1 are now semantic layout rules.
+   The author text is untouched; the new corpus switch shares the bottom row. */
+.hc-home-description p.hc-home-theory {
+  grid-column:1 / -1;
+  justify-self:start;
+  max-width:545px;
+  margin-left:-21px;
+  transform:translateY(1px);
+}
+.hc-home-description p.hc-home-project {
+  grid-column:1;
+  justify-self:start;
+  max-width:365px;
+  margin-left:-21px;
+}
+.hc-home-description .hc-home-quote {
+  grid-column:1 / -1;
+  justify-self:start;
+  width:320px;
+  max-width:100%;
+  margin:0 0 2px -19px;
+  padding:0;
+  border:0;
+  color:var(--ink);
+  text-align:left;
+  transform:translateY(-17px);
+  text-wrap:balance;
+  font:700 20px/1.12 var(--hc-reading-font, 'American Typewriter', Georgia, serif);
+  letter-spacing:-.028em;
+}
+
+/* The homepage is a second, synchronized entrance to the same four text bodies. */
+.hc-home-corpus {
+  grid-column:2;
+  grid-row:3;
+  justify-self:end;
+  align-self:end;
+  width:var(--hc-home-corpus-width);
+  min-width:0;
+  font-family:var(--mono);
+  letter-spacing:0;
+}
+.hc-home-corpus-header {
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:14px;
+  min-height:17px;
+  margin:0 0 6.3px;
+}
+.hc-home-corpus-caption {
+  color:var(--calm-blue);
+  white-space:nowrap;
+  font:600 11px/1.2 var(--mono);
+  letter-spacing:.015em;
+}
+.hc-home-description .hc-home-corpus-info {
+  display:grid;
+  place-items:center;
+  flex:0 0 12px;
+  width:12px;
+  height:12px;
+  min-width:12px;
+  padding:0;
+  border:1px solid var(--calm-blue);
+  border-radius:50%;
+  background:transparent;
+  color:var(--calm-blue);
+  font:600 7px/1 var(--mono);
+  cursor:pointer;
+}
+.hc-home-corpus-info:hover,
+.hc-home-corpus-info[aria-expanded='true'] { background:var(--yellow); }
+.hc-home-corpus-info:focus-visible,
+.hc-home-corpus-tabs .hc-contents-tab:focus-visible {
+  outline:2px solid var(--calm-blue);
+  outline-offset:3px;
+}
+.hc-home-corpus .hc-home-corpus-tabs {
+  box-sizing:border-box;
+  width:100%;
+  margin:0;
+  --hc-ink:#202124;
+  --hc-blue:#688da5;
+  --hc-yellow:#d8c62a;
+  --hc-mono:'JetBrains Mono','Courier New',monospace;
+}
+
+/* Both corpus rails now inherit one 59px/44.5px geometry from research-panels.css.
+   At the desktop width 218.5px, the gap between circles is 8.67px (−30.7%)
+   and the outer clearance is 7.25px on all sides. */
+
+/* 03.11.2026 · точные авторские правки, сохранённые в Мастерской v55/A.1.
+   Устойчивые имена элементов вместо зависящих от структуры селекторов редактора.
+   На узких экранах сохраняется уже принятая адаптивная компоновка.
+   Исходная принятая проба v55/A в Мастерской не изменяется. */
+@media (min-width:1081px) {
+  .hc-home-description p.hc-home-theory { width:445px; }
+  .hc-home-description p.hc-home-project { translate:0px -19px; }
+  .hc-home-description .hc-home-corpus { translate:-3px -22px; }
+  .hc-home-corpus .hc-home-corpus-tabs { translate:3px 0px; }
+  .hc-home-corpus-caption {
+    font-size:10px;
+    letter-spacing:0px;
+    translate:5px 0px;
+  }
+}
+
+/* Give the theory and project exactly two reading line-heights of breathing room. */
+@media (min-width:1081px) {
+  .hc-home-corpus { padding-top:8.1px; }
+}
+@media (min-width:681px) and (max-width:1080px) {
+  .hc-home-corpus { padding-top:11.1px; }
+}
+
+/* Once the two columns cannot remain distinct, the composition becomes vertical. */
+@media (max-width:1080px) {
+  .hc-home-hero {
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    aspect-ratio:auto;
+    padding:0;
+  }
+  .hc-home-art {
+    position:relative;
+    order:0;
+    flex:none;
+    width:100%;
+    height:auto;
+    aspect-ratio:1885 / 904;
+  }
+  .hc-home-copy {
+    position:relative;
+    order:1;
+    right:auto;
+    bottom:auto;
+    width:100%;
+    margin:15px 0 10px;
+  }
+  .hc-home-description {
+    font-size:clamp(13px, 3.6vw, 15px);
+    line-height:1.16;
+  }
+  .hc-home-description .hc-home-quote,
+  .hc-home-description p.hc-home-theory,
+  .hc-home-description p.hc-home-project {
+    margin-left:0;
+    transform:none;
+  }
+  .hc-home-description .hc-home-quote { font-size:20px; }
+}
+@media (max-width:680px) {
+  .hc-home-description {
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:12px;
+  }
+  .hc-home-description .hc-home-quote,
+  .hc-home-description p.hc-home-theory,
+  .hc-home-description p.hc-home-project {
+    width:100%;
+    max-width:100%;
+    margin:0;
+  }
+  .hc-home-corpus {
+    width:min(100%,var(--hc-home-corpus-width));
+    align-self:flex-end;
+    margin-top:7px;
+  }
+  .hc-home-corpus-caption { font-size:10px; }
+  .hc-home-theory-ending { display:inline; }
+  .hc-home-description p.hc-home-project { margin-top:calc(2.32em - 12px); }
+}

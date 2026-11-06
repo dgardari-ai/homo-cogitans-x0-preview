@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f9fa">
+  <meta name="description" content="HOMO COGITANS x.0 — интерактивная книга и исследовательская среда о человеческом мышлении. Прототип Дениса Гардари.">
+  <title>HOMO COGITANS x.0 — интерактивное исследование</title>
+  <link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon-x0.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="blog-home.css">
+  <link rel="stylesheet" href="blog-home-overrides.css">
+  <link rel="stylesheet" href="logo.css">
+  <link rel="stylesheet" href="intro-logo.css">
+  <link rel="stylesheet" href="research-home.css">
+  <link rel="stylesheet" href="home-hero.css">
+  <link rel="stylesheet" href="forms-accordion.css">
+  <link rel="stylesheet" href="theses-accordion.css">
+  <link rel="stylesheet" href="application-cards.css">
+  <link rel="stylesheet" href="research-panels.css">
+  <link rel="stylesheet" href="assets/pt-serif/fonts.css">
+  <link rel="stylesheet" href="text-reader.css">
+  <link rel="stylesheet" href="essays-reader.css">
+</head>
+<body>
+  <div id="live-status" class="visually-hidden" aria-live="polite"></div>
+
+  <section class="intro" id="intro" role="dialog" aria-modal="true" aria-label="Заставка HOMO COGITANS" tabindex="-1">
+    <div class="intro-center">
+      <div class="intro-logo-slot" role="img" aria-label="Знак Мышление х.0">
+        <canvas class="intro-logo-particles" id="intro-logo-particles" aria-hidden="true"></canvas>
+        <img class="intro-logo-final" id="intro-logo-final" src="assets/logo-x0-black.png" alt="" width="144" height="144" fetchpriority="high">
+      </div>
+      <svg id="intro-word" class="intro-word" viewBox="0 0 1600 260" role="img" aria-label="HOMO COGITANS">
+        <defs>
+          <filter id="intro-goo" x="-5%" y="-20%" width="110%" height="145%" color-interpolation-filters="sRGB">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="soft" />
+            <feColorMatrix in="soft" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -8" />
+          </filter>
+          <filter id="intro-pen-glow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1.1" result="halo" />
+            <feMerge><feMergeNode in="halo"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <mask id="intro-fill-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="260">
+            <g id="intro-liquid-surfaces" filter="url(#intro-goo)" fill="white"></g>
+          </mask>
+        </defs>
+        <text id="intro-measure" class="intro-glyph intro-measure" x="0" y="175">HOMO COGITANS</text>
+        <g id="intro-fill-group" mask="url(#intro-fill-mask)"></g>
+        <g id="intro-outline"></g>
+        <g id="intro-pen-tips" filter="url(#intro-pen-glow)"></g>
+      </svg>
+      <p class="intro-type" aria-label="НОВАЯ ТЕОРИЯ МЫШЛЕНИЯ"><span id="typed-subtitle"></span><span class="type-caret" aria-hidden="true"></span></p>
+    </div>
+  </section>
+
+  <div class="app-shell hc-app" id="app-shell" aria-hidden="true">
+    <div class="mobile-scrim" id="mobile-scrim"></div>
+    <aside class="sidebar" id="sidebar" hidden inert aria-label="Главное меню исследования">
+      <div class="sidebar-top">
+        <button class="brand-icon project-logo-holder" type="button" data-route="overview" aria-label="На главную"><img class="project-logo-image" src="assets/logo-x0-black.png" alt="" width="66" height="66"></button>
+        <span class="sidebar-product micro">HOMO COGITANS<br><strong>ИССЛЕДОВАНИЕ х.0</strong></span>
+        <button class="sidebar-close" id="sidebar-close" type="button" aria-label="Закрыть меню">ЗАКРЫТЬ</button>
+      </div>
+      <div class="sidebar-section-title micro"><span>НАВИГАЦИЯ</span><span>01—07</span></div>
+      <nav class="sidebar-nav" aria-label="Разделы">
+        <button class="side-link active" data-route="overview" type="button"><span class="side-index">00</span><span>Главная</span></button>
+        <button class="side-link" data-route="book" type="button"><span class="side-index">01</span><span>Книга</span></button>
+        <button class="side-link" data-route="map" type="button"><span class="side-index">02</span><span>Мета-Карта х.0</span></button>
+        <button class="side-link" data-route="master" type="button"><span class="side-index">03</span><span>Мастер-текст</span></button>
+        <button class="side-link" data-route="treatise" type="button"><span class="side-index">04</span><span>Трактат</span></button>
+        <button class="side-link" data-route="lab" type="button"><span class="side-index">05</span><span>Лаборатория</span></button>
+        <button class="side-link" data-route="journal" type="button"><span class="side-index">06</span><span>Дневник</span></button>
+      </nav>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-quote"><span class="quote-mark">“</span><p>Не только читать о мышлении.<br>Исследовать мышление в действии.</p></div>
+      <div class="sidebar-bottom">
+        <button type="button" class="subscribe-side" id="subscribe-side"><span class="subscribe-dot"></span><span>ДОСТУП К ИССЛЕДОВАНИЮ</span></button>
+        <div class="sidebar-meta micro"><span>ДЕНИС ГАРДАРИ<br>© 2026</span><span>ПРОТОТИП<br>V 0.1</span></div>
+      </div>
+    </aside>
+
+    <div class="main-shell">
+      <header class="topbar" hidden inert>
+        <button class="mobile-menu" id="mobile-menu" type="button" aria-label="Открыть меню"><span></span><span></span></button>
+        <div class="search-pill">
+          <span class="search-mark project-logo-holder" aria-hidden="true"><img class="project-logo-image" src="assets/logo-x0-black.png" alt="" width="64" height="64"></span>
+          <label class="visually-hidden" for="site-search">Поиск по исследованию</label>
+          <input id="site-search" type="search" autocomplete="off" placeholder="HOMO COGITANS: ПОИСК ПО КНИГЕ, КАРТЕ, ПОНЯТИЯМ...">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.7" cy="10.7" r="6.6" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <div class="search-results" id="search-results" hidden></div>
+        </div>
+        <nav class="top-navigation" aria-label="Быстрые переходы">
+          <button type="button" data-route="overview" class="nav-card selected"><span class="nav-num">01</span><span>ГЛАВНАЯ</span></button>
+          <button type="button" data-route="book" class="nav-card"><span class="nav-num">02</span><span>КНИГА</span></button>
+          <button type="button" data-route="map" class="nav-card"><span class="nav-num">03</span><span>КАРТА</span></button>
+          <button type="button" data-route="lab" class="nav-card"><span class="nav-num">04</span><span>ОПЫТ</span></button>
+        </nav>
+      </header>
+
+
+      <div class="blog-home hc-site-header" id="hc-site-header">
+        <svg class="hc-filter-defs" width="0" height="0" aria-hidden="true"><defs><filter id="hc-logo-greyblue" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="linear" slope=".592157" intercept=".407843"/><feFuncG type="linear" slope=".447059" intercept=".552941"/><feFuncB type="linear" slope=".352941" intercept=".647059"/></feComponentTransfer></filter></defs></svg>
+        <div class="hc-header-frame">
+          <button class="hc-edge-toggle" id="hc-toc-toggle" type="button" data-open-panel="contents" aria-label="Открыть оглавление" aria-expanded="false" aria-controls="hc-contents-panel"><span class="hc-edge-dot" aria-hidden="true"><svg class="hc-edge-chevron" viewBox="0 0 24 24"><path d="M15 4.5 7.5 12 15 19.5" /></svg></span></button>
+          <header class="matrix-header">
+            <form class="search-rail" id="hc-search-form" role="search" autocomplete="off">
+              <button class="brand-mark project-logo-holder hc-blue-logo" type="button" data-route="overview" aria-label="HOMO COGITANS — на главную"><img class="project-logo-image" src="assets/logo-x0-black.png" alt="" width="62" height="62"></button>
+              <label class="visually-hidden" for="hc-material-search">Поиск по разделам и понятиям исследования</label>
+              <input class="search-field" id="hc-material-search" type="search" placeholder="HOMO COGITANS: ПОИСК ПО КНИГЕ, ТЕОРИИ, КАРТЕ..." spellcheck="false" aria-controls="hc-search-results" aria-expanded="false">
+              <button class="search-submit" type="submit" aria-label="Найти в исследовании"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.6" cy="10.6" r="6.7"/><path d="m16 16 5 5"/></svg></button>
+              <div class="search-results" id="hc-search-results" role="region" aria-live="polite" aria-label="Результаты поиска" hidden></div>
+            </form>
+            <nav class="matrix-nav" id="hc-matrix-nav" aria-label="Разделы исследования"></nav>
+          </header>
+          <button class="hc-edge-toggle" id="hc-comments-toggle" type="button" data-open-panel="comments" aria-label="Открыть комментарии" aria-expanded="false" aria-controls="hc-comments-panel"><span class="hc-edge-dot" aria-hidden="true"><svg class="hc-edge-chevron" viewBox="0 0 24 24"><path d="M15 4.5 7.5 12 15 19.5" /></svg></span></button>
+        </div>
+      </div>
+
+      <main id="main-content">
+
+        <section class="page-view active" data-view="overview" aria-labelledby="home-title">
+          <div class="blog-home hc-research-home" id="blog-home">
+            <div class="page-shell hc-home-page">
+              <section class="hc-home-hero" aria-labelledby="home-title">
+                <h1 id="home-title" class="visually-hidden">HOMO COGITANS</h1>
+                <figure class="hc-home-art">
+                  <img src="assets/hero-sculpture-wordmark.png" alt="Мраморная скульптура человека, смотрящего вверх, и надпись HOMO COGITANS" width="2047" height="1046" fetchpriority="high">
+                </figure>
+                <div class="hc-home-copy">
+                  <div class="hc-home-description">
+                    <blockquote class="hc-home-quote">Мы думаем о мышлении в «единственном» числе, а живем во «множественном»</blockquote>
+                    <p class="hc-home-theory">«Мышление х.0» — теория происхождения, устройства и динамики основных форм этих «быть и мыслить». Она исследует большие конфигурации человеческого мышления: их основания, историю,<span class="hc-home-theory-ending"> возможности и пределы.</span></p>
+                    <p class="hc-home-project">HOMO COGITANS — интерактивный проект-исследование Дениса Гардари, где сама теория «х.0» развивается в процессе погружения в материал.</p>
+                    <div class="hc-home-corpus" data-vmg-edit-target="Главная · вход в четыре корпуса текстов">
+                      <div class="hc-home-corpus-header" data-vmg-edit-target="Главная · название корпуса текстов и информация">
+                        <span class="hc-home-corpus-caption" data-vmg-edit-target="Главная · КОРПУС ТЕКСТОВ Х.0">КОРПУС ТЕКСТОВ Х.0</span>
+                        <button class="hc-home-corpus-info" type="button" data-hc-corpus-info aria-label="О четырёх корпусах текстов" aria-controls="hc-contents-info" aria-expanded="false" data-vmg-edit-target="Главная · информационный кружок">i</button>
+                      </div>
+                      <div class="hc-contents-tabs hc-home-corpus-tabs" id="hc-home-corpus-tabs" role="group" aria-label="Четыре корпуса текстов" data-vmg-edit-target="Главная · переключатель корпусов 01–04">
+                        <span class="hc-contents-indicator" aria-hidden="true"></span>
+                        <button class="hc-contents-tab" type="button" data-hc-corpus-tab="monograph" aria-pressed="true" aria-label="01 — Монография" data-vmg-edit-target="Главная · корпус 01 — монография"><span class="hc-contents-tab-label">01</span></button>
+                        <button class="hc-contents-tab" type="button" data-hc-corpus-tab="concept" aria-pressed="false" aria-label="02 — Трактат" data-vmg-edit-target="Главная · корпус 02 — трактат"><span class="hc-contents-tab-label">02</span></button>
+                        <button class="hc-contents-tab" type="button" data-hc-corpus-tab="manuscript" aria-pressed="false" aria-label="03 — Рукопись" data-vmg-edit-target="Главная · корпус 03 — рукопись"><span class="hc-contents-tab-label">03</span></button>
+                        <button class="hc-contents-tab" type="button" data-hc-corpus-tab="essays" aria-pressed="false" aria-label="04 — Корпус эссе" data-vmg-edit-target="Главная · корпус 04 — эссе"><span class="hc-contents-tab-label">04</span></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="hc-theses-section hc-fold-section" aria-labelledby="hc-theses-title">
+                <h2 id="hc-theses-title" class="hc-theses-heading"><button class="hc-section-fold-toggle" type="button" aria-expanded="true" aria-controls="hc-theses-list" data-vmg-edit-target="Заголовок раздела · тезисы"><span class="hc-section-fold-mark" aria-hidden="true" data-vmg-edit-target="Левый квадрат · тезисы"></span><span class="hc-section-fold-title" data-vmg-edit-target="Название раздела · тезисы">КЛЮЧЕВЫЕ ТЕЗИСЫ ТЕОРИИ х.0 ДЛЯ ПОНИМАНИЯ</span><span class="hc-section-fold-mark" aria-hidden="true" data-vmg-edit-target="Правый квадрат · тезисы"></span></button></h2>
+                <div class="hc-theses-list" id="hc-theses-list">
+                  <article class="hc-thesis-item">
+                    <button class="hc-thesis-trigger" type="button" id="hc-thesis-trigger-1" aria-expanded="false" aria-controls="hc-thesis-panel-1">
+                      <span class="hc-thesis-number">01</span><span class="hc-thesis-copy"><strong class="hc-thesis-name">Вынесение мышления вовне</strong><span class="hc-thesis-question">Откуда берется историческая динамика когнитивности?</span></span><span class="hc-thesis-plus" aria-hidden="true"></span>
+                    </button>
+                    <div class="hc-thesis-panel" id="hc-thesis-panel-1" role="region" aria-labelledby="hc-thesis-trigger-1" aria-hidden="true" inert><div class="hc-thesis-panel-inner"></div></div>
+                  </article>
+                  <article class="hc-thesis-item">
+                    <button class="hc-thesis-trigger" type="button" id="hc-thesis-trigger-2" aria-expanded="false" aria-controls="hc-thesis-panel-2">
+                      <span class="hc-thesis-number">02</span><span class="hc-thesis-copy"><strong class="hc-thesis-name">Шесть базовых форм мышления</strong><span class="hc-thesis-question">Чем отличаются 6 базовых форм мышления?</span></span><span class="hc-thesis-plus" aria-hidden="true"></span>
+                    </button>
+                    <div class="hc-thesis-panel" id="hc-thesis-panel-2" role="region" aria-labelledby="hc-thesis-trigger-2" aria-hidden="true" inert><div class="hc-thesis-panel-inner"></div></div>
+                  </article>
+                  <article class="hc-thesis-item">
+                    <button class="hc-thesis-trigger" type="button" id="hc-thesis-trigger-3" aria-expanded="false" aria-controls="hc-thesis-panel-3">
+                      <span class="hc-thesis-number">03</span><span class="hc-thesis-copy"><strong class="hc-thesis-name">Генезис мышления</strong><span class="hc-thesis-question">Почему смена форм мышления — это не лестница прогресса?</span></span><span class="hc-thesis-plus" aria-hidden="true"></span>
+                    </button>
+                    <div class="hc-thesis-panel" id="hc-thesis-panel-3" role="region" aria-labelledby="hc-thesis-trigger-3" aria-hidden="true" inert><div class="hc-thesis-panel-inner"></div></div>
+                  </article>
+                  <article class="hc-thesis-item">
+                    <button class="hc-thesis-trigger" type="button" id="hc-thesis-trigger-4" aria-expanded="false" aria-controls="hc-thesis-panel-4">
+                      <span class="hc-thesis-number">04</span><span class="hc-thesis-copy"><strong class="hc-thesis-name">Когнитивные пределы</strong><span class="hc-thesis-question">Почему меняются формы мышления и появляются новые?</span></span><span class="hc-thesis-plus" aria-hidden="true"></span>
+                    </button>
+                    <div class="hc-thesis-panel" id="hc-thesis-panel-4" role="region" aria-labelledby="hc-thesis-trigger-4" aria-hidden="true" inert><div class="hc-thesis-panel-inner"></div></div>
+                  </article>
+                  <article class="hc-thesis-item">
+                    <button class="hc-thesis-trigger" type="button" id="hc-thesis-trigger-5" aria-expanded="false" aria-controls="hc-thesis-panel-5">
+                      <span class="hc-thesis-number">05</span><span class="hc-thesis-copy"><strong class="hc-thesis-name">Суггестия и дипластия</strong><span class="hc-thesis-question">В чем истоки и специфика человеческой когнитивности?</span></span><span class="hc-thesis-plus" aria-hidden="true"></span>
+                    </button>
+                    <div class="hc-thesis-panel" id="hc-thesis-panel-5" role="region" aria-labelledby="hc-thesis-trigger-5" aria-hidden="true" inert><div class="hc-thesis-panel-inner"></div></div>
+                  </article>
+                  <article class="hc-thesis-item">
+                    <button class="hc-thesis-trigger" type="button" id="hc-thesis-trigger-6" aria-expanded="false" aria-controls="hc-thesis-panel-6">
+                      <span class="hc-thesis-number">06</span><span class="hc-thesis-copy"><strong class="hc-thesis-name">Тройная спираль</strong><span class="hc-thesis-question">Как устроены внутренние процессы форм мышления?</span></span><span class="hc-thesis-plus" aria-hidden="true"></span>
+                    </button>
+                    <div class="hc-thesis-panel" id="hc-thesis-panel-6" role="region" aria-labelledby="hc-thesis-trigger-6" aria-hidden="true" inert><div class="hc-thesis-panel-inner"></div></div>
+                  </article>
+                  <article class="hc-thesis-item">
+                    <button class="hc-thesis-trigger" type="button" id="hc-thesis-trigger-7" aria-expanded="false" aria-controls="hc-thesis-panel-7">
+                      <span class="hc-thesis-number">07</span><span class="hc-thesis-copy"><strong class="hc-thesis-name">Независимость от масштаба</strong><span class="hc-thesis-question">Почему законы мышления идентичны для личности и общества?</span></span><span class="hc-thesis-plus" aria-hidden="true"></span>
+                    </button>
+                    <div class="hc-thesis-panel" id="hc-thesis-panel-7" role="region" aria-labelledby="hc-thesis-trigger-7" aria-hidden="true" inert><div class="hc-thesis-panel-inner"></div></div>
+                  </article>
+                  <article class="hc-thesis-item">
+                    <button class="hc-thesis-trigger" type="button" id="hc-thesis-trigger-8" aria-expanded="false" aria-controls="hc-thesis-panel-8">
+                      <span class="hc-thesis-number">08</span><span class="hc-thesis-copy"><strong class="hc-thesis-name">Конфигурации мышления</strong><span class="hc-thesis-question">Как устроено мышление современного человека?</span></span><span class="hc-thesis-plus" aria-hidden="true"></span>
+                    </button>
+                    <div class="hc-thesis-panel" id="hc-thesis-panel-8" role="region" aria-labelledby="hc-thesis-trigger-8" aria-hidden="true" inert><div class="hc-thesis-panel-inner"></div></div>
+                  </article>
+                  <article class="hc-thesis-item">
+                    <button class="hc-thesis-trigger" type="button" id="hc-thesis-trigger-9" aria-expanded="false" aria-controls="hc-thesis-panel-9">
+                      <span class="hc-thesis-number">09</span><span class="hc-thesis-copy"><strong class="hc-thesis-name">Странная петля</strong><span class="hc-thesis-question">Как происходит квантовый скачок когнитивной сложности?</span></span><span class="hc-thesis-plus" aria-hidden="true"></span>
+                    </button>
+                    <div class="hc-thesis-panel" id="hc-thesis-panel-9" role="region" aria-labelledby="hc-thesis-trigger-9" aria-hidden="true" inert><div class="hc-thesis-panel-inner"></div></div>
+                  </article>
+                </div>
+              </section>
+              <section class="image-accordion hc-forms-accordion hc-fold-section" aria-labelledby="hc-forms-title">
+                <h2 id="hc-forms-title" class="hc-theses-heading"><button class="hc-section-fold-toggle" type="button" aria-expanded="true" aria-controls="hc-forms-track" data-vmg-edit-target="Заголовок раздела · формы"><span class="hc-section-fold-mark" aria-hidden="true" data-vmg-edit-target="Левый квадрат · формы"></span><span class="hc-section-fold-title" data-vmg-edit-target="Название раздела · формы">ШЕСТЬ БАЗОВЫХ ФОРМ МЫШЛЕНИЯ</span><span class="hc-section-fold-mark" aria-hidden="true" data-vmg-edit-target="Правый квадрат · формы"></span></button></h2>
+                <div class="accordion-track" id="hc-forms-track"></div>
+              </section>
+              <section class="hc-applications-section hc-fold-section" aria-labelledby="hc-applications-title">
+                <h2 id="hc-applications-title" class="hc-theses-heading"><button class="hc-section-fold-toggle" type="button" aria-expanded="true" aria-controls="hc-applications-grid" data-vmg-edit-target="Заголовок раздела · инструменты"><span class="hc-section-fold-mark" aria-hidden="true" data-vmg-edit-target="Левый квадрат · инструменты"></span><span class="hc-section-fold-title" data-vmg-edit-target="Название раздела · инструменты">ПРИМЕНЕНИЕ х.0 ЖИЗНИ: ПРИМЕРЫ И ИНСТРУМЕНТЫ</span><span class="hc-section-fold-mark" aria-hidden="true" data-vmg-edit-target="Правый квадрат · инструменты"></span></button></h2>
+                <svg class="hc-applications-symbol" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><defs>
+                  <symbol id="hc-application-outline" viewBox="0 0 300 300">
+                    <path vector-effect="non-scaling-stroke" d="M46.79072656342929 .5 H288 A11.5 11.5 0 0 1 299.5 12 V288 A11.5 11.5 0 0 1 288 299.5 H12 A11.5 11.5 0 0 1 .5 288 V46.79072656342929 A11.5 11.5 0 0 1 12.767732953990608 35.316381871406264 A21.181818156064274 21.181818156064274 0 0 0 35.316381871406264 12.767732953990608 A11.5 11.5 0 0 1 46.79072656342929 .5 Z"/>
+                  </symbol>
+                </defs></svg>
+                <div class="hc-applications-grid" id="hc-applications-grid">
+                  <article class="hc-application-card" tabindex="0" data-vmg-edit-target="Карточка целиком · инструмент 01">
+                    <svg class="hc-application-shape" viewBox="0 0 300 300" preserveAspectRatio="none" aria-hidden="true" data-vmg-edit-target="Фон карточки · инструмент 01"><use href="#hc-application-outline" data-vmg-edit-target="Фон и контур · инструмент 01"/></svg>
+                    <span class="hc-application-number" data-vmg-edit-target="Номер · инструмент 01">01</span>
+                    <div class="hc-application-body" data-vmg-edit-target="Компоновка карточки · инструмент 01">
+                      <h3 class="hc-application-name" data-vmg-edit-target="Название · инструмент 01">ДИАГНОСТИКА ЛИЧНОСТИ</h3>
+                      <div class="hc-application-description-block" data-vmg-edit-target="Средний блок описания · инструмент 01">
+                        <p class="hc-application-description" data-vmg-edit-target="Текст описания · инструмент 01">Как устроена личная конфигурация мышления, какие формы в ней ведущие и где проходят их пределы.</p>
+                      </div>
+                      <button class="hc-application-action" type="button" disabled title="Страница инструмента в разработке" data-vmg-edit-target="Кнопка · инструмент 01">ПЕРЕЙТИ К ИНСТРУМЕНТУ</button>
+                    </div>
+                  </article>
+                  <article class="hc-application-card" tabindex="0" data-vmg-edit-target="Карточка целиком · инструмент 02">
+                    <svg class="hc-application-shape" viewBox="0 0 300 300" preserveAspectRatio="none" aria-hidden="true" data-vmg-edit-target="Фон карточки · инструмент 02"><use href="#hc-application-outline" data-vmg-edit-target="Фон и контур · инструмент 02"/></svg>
+                    <span class="hc-application-number" data-vmg-edit-target="Номер · инструмент 02">02</span>
+                    <div class="hc-application-body" data-vmg-edit-target="Компоновка карточки · инструмент 02">
+                      <h3 class="hc-application-name" data-vmg-edit-target="Название · инструмент 02">Алмазный контур</h3>
+                      <div class="hc-application-description-block" data-vmg-edit-target="Средний блок описания · инструмент 02">
+                        <p class="hc-application-description" data-vmg-edit-target="Текст описания · инструмент 02">Как привычная форма защищает себя: исключает носителя, сокращает содержание, разрывает связи.</p>
+                      </div>
+                      <button class="hc-application-action" type="button" disabled title="Страница инструмента в разработке" data-vmg-edit-target="Кнопка · инструмент 02">ПЕРЕЙТИ К ИНСТРУМЕНТУ</button>
+                    </div>
+                  </article>
+                  <article class="hc-application-card" tabindex="0" data-vmg-edit-target="Карточка целиком · инструмент 03">
+                    <svg class="hc-application-shape" viewBox="0 0 300 300" preserveAspectRatio="none" aria-hidden="true" data-vmg-edit-target="Фон карточки · инструмент 03"><use href="#hc-application-outline" data-vmg-edit-target="Фон и контур · инструмент 03"/></svg>
+                    <span class="hc-application-number" data-vmg-edit-target="Номер · инструмент 03">03</span>
+                    <div class="hc-application-body" data-vmg-edit-target="Компоновка карточки · инструмент 03">
+                      <h3 class="hc-application-name" data-vmg-edit-target="Название · инструмент 03">Обратное присвоение</h3>
+                      <div class="hc-application-description-block" data-vmg-edit-target="Средний блок описания · инструмент 03">
+                        <p class="hc-application-description" data-vmg-edit-target="Текст описания · инструмент 03">Как внешнее средство становится собственной способностью, а не только удобной функцией.</p>
+                      </div>
+                      <button class="hc-application-action" type="button" disabled title="Страница инструмента в разработке" data-vmg-edit-target="Кнопка · инструмент 03">ПЕРЕЙТИ К ИНСТРУМЕНТУ</button>
+                    </div>
+                  </article>
+                  <article class="hc-application-card" tabindex="0" data-vmg-edit-target="Карточка целиком · инструмент 04">
+                    <svg class="hc-application-shape" viewBox="0 0 300 300" preserveAspectRatio="none" aria-hidden="true" data-vmg-edit-target="Фон карточки · инструмент 04"><use href="#hc-application-outline" data-vmg-edit-target="Фон и контур · инструмент 04"/></svg>
+                    <span class="hc-application-number" data-vmg-edit-target="Номер · инструмент 04">04</span>
+                    <div class="hc-application-body" data-vmg-edit-target="Компоновка карточки · инструмент 04">
+                      <h3 class="hc-application-name" data-vmg-edit-target="Название · инструмент 04">Творческая пульсация</h3>
+                      <div class="hc-application-description-block" data-vmg-edit-target="Средний блок описания · инструмент 04">
+                        <p class="hc-application-description" data-vmg-edit-target="Текст описания · инструмент 04">Как импульс и живой доступ открывают возможности, ещё не сложившиеся в новое целое.</p>
+                      </div>
+                      <button class="hc-application-action" type="button" disabled title="Страница инструмента в разработке" data-vmg-edit-target="Кнопка · инструмент 04">ПЕРЕЙТИ К ИНСТРУМЕНТУ</button>
+                    </div>
+                  </article>
+                  <article class="hc-application-card" tabindex="0" data-vmg-edit-target="Карточка целиком · инструмент 05">
+                    <svg class="hc-application-shape" viewBox="0 0 300 300" preserveAspectRatio="none" aria-hidden="true" data-vmg-edit-target="Фон карточки · инструмент 05"><use href="#hc-application-outline" data-vmg-edit-target="Фон и контур · инструмент 05"/></svg>
+                    <span class="hc-application-number" data-vmg-edit-target="Номер · инструмент 05">05</span>
+                    <div class="hc-application-body" data-vmg-edit-target="Компоновка карточки · инструмент 05">
+                      <h3 class="hc-application-name" data-vmg-edit-target="Название · инструмент 05">Когнитивный суверенитет</h3>
+                      <div class="hc-application-description-block" data-vmg-edit-target="Средний блок описания · инструмент 05">
+                        <p class="hc-application-description" data-vmg-edit-target="Текст описания · инструмент 05">Как сохранять собственную меру суждения и ответственность при участии внешних средств.</p>
+                      </div>
+                      <button class="hc-application-action" type="button" disabled title="Страница инструмента в разработке" data-vmg-edit-target="Кнопка · инструмент 05">ПЕРЕЙТИ К ИНСТРУМЕНТУ</button>
+                    </div>
+                  </article>
+                  <article class="hc-application-card" tabindex="0" data-vmg-edit-target="Карточка целиком · инструмент 06">
+                    <svg class="hc-application-shape" viewBox="0 0 300 300" preserveAspectRatio="none" aria-hidden="true" data-vmg-edit-target="Фон карточки · инструмент 06"><use href="#hc-application-outline" data-vmg-edit-target="Фон и контур · инструмент 06"/></svg>
+                    <span class="hc-application-number" data-vmg-edit-target="Номер · инструмент 06">06</span>
+                    <div class="hc-application-body" data-vmg-edit-target="Компоновка карточки · инструмент 06">
+                      <h3 class="hc-application-name" data-vmg-edit-target="Название · инструмент 06">Технология новации</h3>
+                      <div class="hc-application-description-block" data-vmg-edit-target="Средний блок описания · инструмент 06">
+                        <p class="hc-application-description" data-vmg-edit-target="Текст описания · инструмент 06">Как возникает, проверяется и закрепляется новое решение в мышлении и деятельности.</p>
+                      </div>
+                      <button class="hc-application-action" type="button" disabled title="Страница инструмента в разработке" data-vmg-edit-target="Кнопка · инструмент 06">ПЕРЕЙТИ К ИНСТРУМЕНТУ</button>
+                    </div>
+                  </article>
+                </div>
+              </section>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-view" data-view="schemes" aria-labelledby="schemes-title">
+          <div class="page-heading"><div><span class="micro eyebrow">МЫШЛЕНИЕ х.0 / ВИЗУАЛЬНЫЙ АППАРАТ</span><h1 id="schemes-title">Схемы х.0</h1><p>Логические, смысловые и визуальные представления устройства теории.</p></div><span class="page-stamp micro">СОБИРАЕТСЯ / ПЕРЕРАБАТЫВАЕТСЯ</span></div>
+          <div class="hc-map-notice"><span class="hc-micro">СТАТУС РАЗДЕЛА</span><p>Здесь будут собираться и проходить переработку схемы разных типов. Нынешние изображения и диаграммы — рабочие пробы, не окончательно принятый атлас.</p></div>
+          <div class="hc-source-layout">
+            <aside class="hc-map-notice"><div><span class="hc-micro">01 / УЖЕ ДОСТУПНО</span><p>Первая интерактивная проба — мета-карта с поясняющими схемами пяти направлений.</p></div></aside>
+            <article class="hc-source-page">
+              <span class="hc-micro">ПРОТОТИП / ПОДЛЕЖИТ ПЕРЕРАБОТКЕ</span>
+              <h2>Мета-карта мышления х.0</h2>
+              <div class="hc-source-text"><p>Генезис, устройство, динамика, сосуществование и пределы форм мышления представлены как пять взаимосвязанных направлений. Этот материал уже можно исследовать, но его визуальная форма ещё развивается.</p></div>
+              <footer><p>Существующая интерактивная карта сохранена в самостоятельном рабочем разделе.</p><div class="hc-source-links"><button type="button" class="hc-outline-button" data-route="map">ОТКРЫТЬ ПРОБУ СХЕМ</button></div></footer>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-view" data-view="game" aria-labelledby="game-title">
+          <div class="page-heading"><div><span class="micro eyebrow">МЫШЛЕНИЕ х.0 / ИГРОВАЯ ЛАБОРАТОРИЯ</span><h1 id="game-title">Игра х.0</h1><p>Будущая игра, в которой положения теории становятся материалом для действия и выбора.</p></div><span class="page-stamp micro">АВТОРСКАЯ ИДЕЯ / В РАЗРАБОТКЕ</span></div>
+          <div class="hc-map-notice"><span class="hc-micro">СТАТУС РАЗДЕЛА</span><p>Идея игры намечена. Правила, игровые механики и сценарии ещё не утверждены; здесь они будут постепенно разрабатываться и испытываться.</p></div>
+          <div class="hc-source-layout">
+            <aside class="hc-map-notice"><div><span class="hc-micro">ПЕРВАЯ ТОЧКА</span><p>Проверка различий между способом ответа, действием и собственной способностью человека.</p></div></aside>
+            <article class="hc-source-page">
+              <span class="hc-micro">НЕ ИГРА / СУЩЕСТВУЮЩИЙ ИССЛЕДОВАТЕЛЬСКИЙ ОПЫТ</span>
+              <h2>От различения — к возможной игровой ситуации</h2>
+              <div class="hc-source-text"><p>В лаборатории уже есть короткая интерактивная ситуация о пользовании результатом и изменении собственной способности. Она пока не является игровой механикой, но может стать одним из материалов для будущей разработки.</p></div>
+              <footer><p>Новых правил и результатов игры пока нет.</p><div class="hc-source-links"><button type="button" class="hc-outline-button" data-route="lab">ПОСМОТРЕТЬ ИССЛЕДОВАТЕЛЬСКИЙ ОПЫТ</button></div></footer>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-view" data-view="examples" aria-labelledby="examples-title">
+          <div class="page-heading"><div><span class="micro eyebrow">МЫШЛЕНИЕ х.0 / ЖИЗНЕННЫЕ СИТУАЦИИ</span><h1 id="examples-title">Примеры х.0</h1><p>Истории, события и ситуации — реальные или сконструированные — с разбором в оптике теории.</p></div><span class="page-stamp micro">НАЧАЛО СОБРАНИЯ / ПОПОЛНЯЕТСЯ</span></div>
+          <div class="hc-map-notice"><span class="hc-micro">СТАТУС РАЗДЕЛА</span><p>Первый пример взят из уже созданной лабораторной пробы. Материалы из банка примеров и Атласа будут добавляться после проверки источников и авторского отбора.</p></div>
+          <div class="hc-source-layout">
+            <aside class="hc-map-notice"><div><span class="hc-micro">01 / СКОНСТРУИРОВАННЫЙ СЛУЧАЙ</span><p>Помощь ИИ в сложном вопросе: результат получен, но что изменилось в мышлении человека?</p></div></aside>
+            <article class="hc-source-page">
+              <span class="hc-micro">СИТУАЦИЯ / ТЕОРЕТИЧЕСКОЕ РАЗЛИЧЕНИЕ</span>
+              <h2>Ответ получен. Что теперь умеет человек?</h2>
+              <div class="hc-source-text"><p>Человек поручил ИИ разобраться в сложном вопросе и получил убедительный ответ. Он может повторить вывод, но ещё не проверял его основания и не пробовал решить похожую задачу.</p><p>С точки зрения х.0 получение результата и присвоение новой способности — разные события. По одному удачному ответу нельзя заключить, что способ собственного мышления уже изменился.</p></div>
+              <footer><p>Случай сконструирован для размышления; это не документальное свидетельство и не проверка личности.</p><div class="hc-source-links"><button type="button" class="hc-outline-button" data-route="lab">РАЗОБРАТЬ СИТУАЦИЮ</button></div></footer>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-view" data-view="book" aria-label="HOMO COGITANS · Рукопись">
+          <div class="hc-text-page"><article class="hc-text-paper" id="hc-text-content-book" aria-label="Текст главы рукописи"></article></div>
+        </section>
+
+
+        <section class="page-view" data-view="essays" aria-label="Мышление х.0 · Корпус эссе">
+          <div class="hc-text-page"><article class="hc-text-paper" id="hc-text-content-essays" aria-label="Чтение исследовательских эссе"></article></div>
+        </section>
+
+        <section class="page-view" data-view="map" aria-labelledby="map-title">
+          <div class="page-heading"><div><span class="micro eyebrow">МЫШЛЕНИЕ х.0 / ПЯТЬ НАПРАВЛЕНИЙ</span><h1 id="map-title">Мета-карта х.0</h1><p>Генезис, устройство, динамика, сосуществование и пределы форм мышления.</p></div><span class="page-stamp micro">ПОЯСНЯЮЩИЕ СХЕМЫ / ПРОТОТИП</span></div>
+          <div class="hc-map-notice"><span class="hc-micro">О СТАТУСЕ СХЕМ</span><p>Это интерактивные пояснения по Трактату v5.2, не окончательные авторские мета-схемы. Текст основания доступен рядом с каждым направлением.</p></div>
+          <div class="hc-research-mount" data-hc-workspace="map"></div>
+        </section>
+
+        <section class="page-view" data-view="master" aria-label="Мышление х.0 · Мастер-текст">
+          <div class="hc-text-page"><article class="hc-text-paper" id="hc-text-content-master" aria-label="Раздел мастер-текста"></article></div>
+        </section>
+
+
+        <section class="page-view" data-view="treatise" aria-label="Мышление х.0 · Трактат">
+          <div class="hc-text-page"><article class="hc-text-paper" id="hc-text-content-treatise" aria-label="Часть концептуального трактата"></article></div>
+        </section>
+
+        <section class="page-view" data-view="lab" aria-labelledby="lab-title">
+          <div class="page-heading"><div><span class="micro eyebrow">ЛАБОРАТОРИЯ / ОПЫТ 01</span><h1 id="lab-title">Результат —<br>ещё не способность</h1><p>Небольшая ситуация для различения пользования и присвоения.</p></div><span class="page-stamp micro">МЫСЛЕННЫЙ ОПЫТ / ПРОТОТИП</span></div>
+          <div class="hc-source-layout">
+            <aside class="hc-map-notice"><div><span class="hc-micro">ВОПРОС К ТЕОРИИ</span><p>Что именно изменилось: доступный результат или собственный способ понимания и действия?</p></div></aside>
+            <article class="hc-source-page">
+              <span class="hc-micro">СИТУАЦИЯ ДЛЯ РАЗБОРА, НЕ ТЕСТ ЛИЧНОСТИ</span>
+              <h2>Ответ получен.<br>Что теперь умеет человек?</h2>
+              <div class="hc-source-text"><p>Человек поручил ИИ разобраться в сложном вопросе и получил убедительный ответ. Он может повторить вывод, но пока не проверял его основания и не пробовал решить похожую задачу.</p><p>Выберите, что вы хотите рассмотреть.</p></div>
+              <div class="hc-lab-choice" role="group" aria-label="Ракурс рассмотрения ситуации">
+                <button type="button" class="hc-outline-button" data-hc-experiment="result" aria-pressed="false">ЧТО МЫ УЖЕ ВИДИМ</button>
+                <button type="button" class="hc-outline-button" data-hc-experiment="ability" aria-pressed="false">ПРИЗНАК ИЗМЕНЕНИЯ СПОСОБНОСТИ</button>
+                <button type="button" class="hc-outline-button" data-hc-experiment="uncertain" aria-pressed="false">ЧЕГО ПОКА НЕЛЬЗЯ ЗАКЛЮЧИТЬ</button>
+              </div>
+              <div class="hc-lab-feedback" aria-live="polite"><span class="hc-micro">РАЗЛИЧЕНИЕ</span><p id="hc-lab-answer">Полученный продукт и преобразование собственной способности — разные предметы наблюдения. Выбор выше раскрывает один из ракурсов, а не оценивает ваше мышление.</p></div>
+              <details class="hc-inline-source"><summary>ОСНОВАНИЕ В ТРАКТАТЕ · IV.3.1</summary><blockquote>Пользование — получение результата или осуществление действия посредством медиатора; из него не следует, что собственная способность уже перестроена. Пользование способно обучать, ослаблять, изменять или почти не менять организацию субъекта.</blockquote><a class="hc-text-action" href="https://drive.google.com/file/d/1QaZCsoXRYafWdgb38fbyzbbRkKO68YWG/view" target="_blank" rel="noopener noreferrer">ОТКРЫТЬ ОРИГИНАЛ</a></details>
+              <footer><p>Сценарий и пояснения — проектная проба применения различения из х.0. Это не диагностический инструмент и не доказательство теории.</p><div class="hc-source-links"><button type="button" class="hc-outline-button" data-route="overview">НА ГЛАВНУЮ</button><button type="button" class="hc-text-action" data-open-panel="comments">ОБСУДИТЬ СИТУАЦИЮ</button></div></footer>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-view" data-view="journal" aria-labelledby="journal-title">
+          <div class="page-heading"><div><span class="micro eyebrow">ЖИВОЕ ИССЛЕДОВАНИЕ / ХРОНИКА</span><h1 id="journal-title">Дневник работы</h1><p>Как книга, теория и интерактивная среда развиваются вместе.</p></div><span class="page-stamp micro">ПРОЕКТ / В РАЗВИТИИ</span></div>
+          <div class="journal-columns"><article class="journal-feature"><span class="micro">ЗАПИСЬ 001 / НОЯБРЬ 2026</span><h2>Произведение, которое можно исследовать</h2><p>Начинаем с образа целого: книга как повествование, карта как способ ориентироваться, теоретический аппарат как пространство углубления и лаборатория как возможность пробовать мыслить иначе.</p><p class="note-paragraph">Этот дневник пока демонстрирует принцип раздела. Даты содержательных публикаций и редакции будут внесены после сверки с авторским корпусом.</p></article><aside class="journal-list"><span class="micro">НАПРАВЛЕНИЯ РАБОТЫ</span><div><small>01</small><strong>ГЛАВЫ И РУКОПИСЬ</strong></div><div><small>02</small><strong>КАРТА И СХЕМЫ</strong></div><div><small>03</small><strong>ИССЛЕДОВАТЕЛЬСКИЕ ОПЫТЫ</strong></div><div><small>04</small><strong>МОДЕЛЬ УЧАСТИЯ</strong></div></aside></div>
+        </section>
+      </main>
+
+      <footer class="site-footer"><div><span class="footer-symbol">х.0</span><p>HOMO COGITANS<br>Генезис, формы и пределы человеческого мышления</p></div><div class="footer-links"><button type="button" data-route="book">КНИГА</button><button type="button" data-route="map">КАРТА</button><button type="button" data-route="journal">ДНЕВНИК</button></div><div class="footer-credit"><span class="micro">© ДЕНИС ГАРДАРИ / 2026</span><button id="replay-intro" type="button" class="micro">ПОВТОРИТЬ ЗАСТАВКУ</button></div></footer>
+    </div>
+  </div>
+
+  <div class="dialog-backdrop" id="subscribe-dialog" hidden role="dialog" aria-modal="true" aria-labelledby="dialog-title"><div class="dialog-card"><button class="dialog-close" id="dialog-close" type="button" aria-label="Закрыть">ЗАКРЫТЬ</button><span class="micro">HOMO COGITANS / УЧАСТИЕ</span><h2 id="dialog-title">Подписка на исследование</h2><p>В дальнейшем подписка откроет полный корпус книги, теории, схем и новых интеллектуальных опытов. Сейчас мы испытываем устройство произведения.</p><div class="dialog-note micro">ПРОТОТИП · ОПЛАТА И РЕГИСТРАЦИЯ НЕ ПОДКЛЮЧЕНЫ</div><button class="solid-action" type="button" id="dialog-understood">ПОНЯТНО</button></div></div>
+  <script src="research-content.js" defer></script>
+  <script src="text-display.js" defer></script>
+  <script src="text-index.js" defer></script>
+  <script src="text-reader.js" defer></script>
+  <script src="essays-index.js" defer></script>
+  <script src="essays-outline.js" defer></script>
+  <script src="essays-reader.js" defer></script>
+  <script src="research-home.js?v=1.5.1" defer></script>
+  <script src="research-panels.js?v=1.5.1" defer></script>
+  <script src="app.js?v=1.5.1" defer></script>
+  <script src="forms-accordion.js" defer></script>
+  <script src="theses-accordion.js" defer></script>
+  <script src="home-section-folds.js" defer></script>
+</body>
+</html>

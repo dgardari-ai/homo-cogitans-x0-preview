@@ -1,0 +1,210 @@
+/* Nine theses: the borderless, horizontal-rule ghost accordion in Gardari typography. */
+.blog-home .hc-theses-section {
+  width:100%;
+  margin:48px 0 0;
+}
+.blog-home .hc-theses-heading {
+  display:block;
+  width:100%;
+  margin:0 0 24px;
+  color:var(--calm-blue);
+  font:500 19.5px/1.45 var(--mono);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.blog-home .hc-section-fold-toggle {
+  display:grid;
+  grid-template-columns:.75em minmax(0,1fr) .75em;
+  align-items:center;
+  gap:14px;
+  width:100%;
+  margin:0;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  color:inherit;
+  font:inherit;
+  letter-spacing:inherit;
+  text-transform:inherit;
+  text-align:center;
+  cursor:pointer;
+}
+.blog-home .hc-section-fold-mark {
+  display:block;
+  width:.75em;
+  height:.75em;
+  background:var(--yellow);
+  transition:background-color .22s ease;
+}
+.blog-home .hc-section-fold-title {
+  display:block;
+  min-width:0;
+  font-size:16px;
+  letter-spacing:-.5px;
+  text-wrap:balance;
+  overflow-wrap:break-word;
+  transition:transform .22s cubic-bezier(.2,.8,.2,1);
+}
+.blog-home .hc-section-fold-toggle:hover .hc-section-fold-title {
+  transform:scale(1.025);
+}
+.blog-home .hc-section-fold-toggle:focus-visible {
+  outline:2px solid var(--calm-blue);
+  outline-offset:4px;
+}
+.blog-home .hc-fold-section.is-collapsed .hc-section-fold-mark {
+  background:var(--calm-blue);
+}
+.blog-home .hc-fold-section.is-collapsed .hc-section-fold-toggle:hover .hc-section-fold-mark,
+.blog-home .hc-fold-section.is-collapsed .hc-section-fold-toggle:focus-visible .hc-section-fold-mark {
+  background:var(--yellow);
+}
+.blog-home .hc-fold-section.is-collapsed .hc-theses-heading {margin-bottom:0;}
+.blog-home .hc-fold-section [hidden] {display:none!important;}
+.blog-home .hc-theses-list {
+  width:100%;
+  border-top:1px solid var(--ink);
+}
+.blog-home .hc-thesis-item {
+  width:100%;
+  border-bottom:1px solid var(--ink);
+  background:transparent;
+}
+.blog-home .hc-thesis-trigger {
+  display:grid;
+  grid-template-columns:24px minmax(0,1fr) 24px;
+  align-items:start;
+  gap:16px;
+  width:100%;
+  min-height:78px;
+  padding:15px 6px 14px 0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  color:var(--ink);
+  cursor:pointer;
+  text-align:left;
+}
+.blog-home .hc-thesis-trigger:focus-visible {
+  outline:2px solid var(--calm-blue);
+  outline-offset:-2px;
+}
+.blog-home .hc-thesis-number {
+  display:block;
+  padding-top:0;
+  color:var(--calm-blue);
+  font:400 13px/1.5 var(--mono);
+  font-variant-numeric:tabular-nums;
+}
+.blog-home .hc-thesis-copy {display:block;min-width:0;}
+.blog-home .hc-thesis-name {
+  display:block;
+  color:var(--calm-blue);
+  font:500 13px/1.5 var(--mono);
+  letter-spacing:0;
+  text-transform:uppercase;
+}
+.blog-home .hc-thesis-question {
+  display:block;
+  max-width:790px;
+  margin-top:0;
+  color:var(--ink);
+  font:900 23px/.9 Arial,Helvetica,sans-serif;
+  letter-spacing:-.98px;
+}
+.blog-home .hc-thesis-plus {
+  position:relative;
+  display:block;
+  width:24px;
+  height:24px;
+  margin-top:21px;
+  color:var(--ink);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1);
+}
+.blog-home .hc-thesis-plus::before,
+.blog-home .hc-thesis-plus::after {
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:17px;
+  height:1.6px;
+  border-radius:2px;
+  background:currentColor;
+  transform:translate(-50%,-50%);
+}
+.blog-home .hc-thesis-plus::after {transform:translate(-50%,-50%) rotate(90deg);}
+.blog-home .hc-thesis-item.is-open .hc-thesis-plus {transform:rotate(45deg);}
+.blog-home .hc-thesis-panel {
+  display:grid;
+  grid-template-rows:0fr;
+  opacity:0;
+  transition:grid-template-rows .42s cubic-bezier(.22,.7,.16,1),opacity .31s ease;
+}
+.blog-home .hc-thesis-item.is-open .hc-thesis-panel {
+  grid-template-rows:1fr;
+  opacity:1;
+}
+.blog-home .hc-thesis-panel-inner {
+  min-height:0;
+  overflow:hidden;
+  padding:0 45px 0 40px;
+  transition:padding-bottom .42s cubic-bezier(.22,.7,.16,1);
+}
+.blog-home .hc-thesis-item.is-open .hc-thesis-panel-inner {padding-bottom:28px;}
+.blog-home .hc-thesis-panel p {
+  max-width:750px;
+  margin:0 0 15px;
+  color:var(--ink);
+  font:400 17px/1.46 Arial,Helvetica,sans-serif;
+  letter-spacing:-.008em;
+}
+.blog-home .hc-thesis-panel p strong {font-weight:700;}
+.blog-home .hc-thesis-deep-link {
+  width:min(100%,285px);
+  margin-top:11px;
+  min-height:44px;
+  justify-content:center;
+  padding:11px 22px;
+  border:1px solid var(--ink);
+  border-radius:999px;
+  background:var(--ink);
+  color:#fff;
+  font:700 10px/1.35 var(--mono) !important;
+  cursor:pointer;
+}
+.blog-home .hc-thesis-deep-link:hover {
+  border-color:var(--calm-blue);
+  background:var(--calm-blue);
+  color:#fff;
+}
+.blog-home .hc-thesis-deep-link:focus-visible {outline:2px solid var(--calm-blue);outline-offset:3px;}
+@media (max-width:680px) {
+  .blog-home .hc-theses-section {margin:32px 0 0;}
+  .blog-home .hc-theses-heading {margin-bottom:18px;font-size:16.5px;line-height:1.5;gap:10px;}
+  .blog-home .hc-thesis-trigger {
+    grid-template-columns:21px minmax(0,1fr) 20px;
+    gap:10px;
+    min-height:75px;
+    padding:13px 2px 13px 0;
+  }
+  .blog-home .hc-thesis-number {font-size:11px;padding-top:0;}
+  .blog-home .hc-thesis-name {font-size:11px;line-height:1.5;}
+  .blog-home .hc-thesis-question {font-size:23px;line-height:.9;margin-top:0;}
+  .blog-home .hc-thesis-plus {width:20px;height:20px;margin-top:17px;}
+  .blog-home .hc-thesis-plus::before,.blog-home .hc-thesis-plus::after {width:15px;}
+  .blog-home .hc-thesis-panel-inner {padding:0 6px 0 31px;}
+  .blog-home .hc-thesis-item.is-open .hc-thesis-panel-inner {padding-bottom:20px;}
+  .blog-home .hc-thesis-panel p {font-size:16px;line-height:1.4;margin-bottom:13px;}
+}
+@media (max-width:360px) {
+  .blog-home .hc-theses-heading {font-size:13.5px;gap:7px;}
+}
+@media (prefers-reduced-motion:reduce) {
+  .blog-home .hc-section-fold-mark,
+  .blog-home .hc-section-fold-title,
+  .blog-home .hc-thesis-plus,
+  .blog-home .hc-thesis-panel,
+  .blog-home .hc-thesis-panel-inner {transition:none;}
+}

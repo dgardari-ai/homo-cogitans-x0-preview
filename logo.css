@@ -1,0 +1,36 @@
+/* Author-supplied HOMO COGITANS symbol. Original artwork, not redrawn.
+   A 1.3x crop lets the circular mark fill the Blog's existing round button
+   while preserving its original proportions. */
+.project-logo-holder {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding:0;
+  border-radius:50%;
+}
+.project-logo-holder .project-logo-image {
+  position:absolute;
+  top:50%;
+  left:50%;
+  display:block;
+  width:130%;
+  height:130%;
+  max-width:none;
+  object-fit:contain;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+.brand-icon.project-logo-holder {
+  border:1px solid var(--ink);
+  background:#fff;
+}
+.search-mark.project-logo-holder {
+  flex:0 0 48px;
+  background:#fff;
+}
+.blog-home .brand-mark.project-logo-holder {
+  background:#fff;
+}
+@media (max-width:740px) {
+  .search-mark.project-logo-holder { flex-basis:38px; }
+}

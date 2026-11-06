@@ -1,0 +1,24 @@
+/* Essay reader inherits the same authorial typography and spacing as the three existing corpora. */
+.hc-essay-eyebrow {
+  max-width: var(--hc-reading-measure);
+  margin: 0 auto 22px;
+  color: #688da5;
+  font: 600 10px/1.45 'JetBrains Mono', monospace;
+  letter-spacing: .035em;
+}
+.hc-essay-origin {
+  max-width: var(--hc-reading-measure);
+  margin: 38px auto 0;
+  padding-top: 14px;
+  border-top: 1px solid #b5bdc1;
+  color: #565c62;
+  font: 400 10.5px/1.6 'JetBrains Mono', monospace;
+}
+.hc-text-paper-inner { width: 100%; }
+.hc-essay-eyebrow + .hc-text-body h1 { margin-bottom: 33px; }
+.hc-text-paper-actions .hc-outline-button[disabled] { opacity: .38; cursor: default; }
+@media (max-width: 740px) {
+  .hc-essay-eyebrow { margin-bottom: 18px; font-size: 9px; }
+  .hc-essay-origin { margin-top: 30px; }
+  .hc-essay-eyebrow + .hc-text-body h1 { margin-bottom: 26px; }
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Знак мышления х.0">
+  <defs>
+    <clipPath id="circle"><circle cx="256" cy="256" r="256"/></clipPath>
+  </defs>
+  <g clip-path="url(#circle)">
+    <circle cx="256" cy="256" r="256" fill="#688da5"/>
+    <path fill="#fff" d="M40 256 98 200 175 276 250 202 304 257 231 332 307 409 251 466 173 389 104 463 A256 256 0 0 1 48 407 L119 334Z"/>
+    <path fill="#fff" d="M353 410 409 354 462 408 A256 256 0 0 1 404 465Z"/>
+  </g>
+</svg>

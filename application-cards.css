@@ -1,0 +1,140 @@
+/* Applications use the accepted scalloped navigation contour and badges.
+   Tools have no destination pages yet: action labels remain disabled. */
+.blog-home .hc-applications-section {
+  margin:0 0 64px;
+}
+.blog-home .hc-applications-section .hc-theses-heading {
+  margin-bottom:24px;
+}
+.hc-applications-symbol {
+  position:absolute;
+  width:0;
+  height:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+.blog-home .hc-applications-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+  width:100%;
+}
+.blog-home .hc-application-card {
+  position:relative;
+  min-width:0;
+  aspect-ratio:1;
+  container-type:inline-size;
+  color:var(--ink);
+}
+.blog-home .hc-application-shape {
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  overflow:visible;
+  fill:var(--calm-blue);
+  stroke:var(--ink);
+  stroke-width:1.25;
+}
+.blog-home .hc-application-number {
+  position:absolute;
+  top:0;
+  left:0;
+  display:grid;
+  place-items:center;
+  width:9.533cqw;
+  height:9.533cqw;
+  border:1px solid var(--ink);
+  border-radius:50%;
+  background:var(--calm-blue);
+  color:#F8F9FA;
+  font:500 clamp(9.1px,3.4cqw,12px)/1 var(--mono);
+  letter-spacing:-.06em;
+  font-variant-numeric:tabular-nums;
+  transition:background-color .2s ease,color .2s ease;
+}
+.blog-home .hc-application-card:hover .hc-application-number,
+.blog-home .hc-application-card:focus .hc-application-number,
+.blog-home .hc-application-card:active .hc-application-number,
+.blog-home .hc-application-card:focus-within .hc-application-number {
+  background:var(--yellow);
+  color:var(--ink);
+}
+.blog-home .hc-application-card:focus-visible {outline:2px solid var(--calm-blue);outline-offset:5px;border-radius:12px;}
+.blog-home .hc-application-body {
+  position:absolute;
+  inset:21% 7% 7%;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  min-width:0;
+}
+.blog-home .hc-application-name {
+  margin:0;
+  min-height:2.44em;
+  max-width:100%;
+  align-self:center;
+  color:#F8F9FA;
+  font:600 17px/1.22 var(--mono);
+  text-align:left;
+  text-transform:uppercase;
+  text-wrap:balance;
+  overflow-wrap:break-word;
+}
+.blog-home .hc-application-description-block {
+  display:flex;
+  flex:1 1 auto;
+  align-items:center;
+  width:100%;
+  min-height:0;
+  margin:12px 0;
+  text-align:center;
+}
+.blog-home .hc-application-description {
+  width:100%;
+  margin:0;
+  color:#F8F9FA;
+  font:400 clamp(12px,1.15vw,14px)/1.32 Arial,Helvetica,sans-serif;
+  text-align:inherit;
+  text-wrap:pretty;
+}
+.blog-home .hc-application-action {
+  flex:none;
+  width:100%;
+  min-height:42px;
+  margin-top:auto;
+  padding:11px 10px;
+  border:1px solid #F8F9FA;
+  border-radius:999px;
+  background:transparent;
+  color:#F8F9FA;
+  opacity:1;
+  font:700 10px/1.2 var(--mono);
+  text-align:center;
+  transition:background-color .2s ease,color .2s ease,border-color .2s ease;
+}
+.blog-home .hc-application-action:hover,
+.blog-home .hc-application-action:focus-visible {
+  background:var(--yellow);
+  border-color:var(--ink);
+  color:var(--ink);
+  font-weight:700;
+}
+.blog-home .hc-application-action:disabled {opacity:1;cursor:default;}
+@media (max-width:900px) {
+  .blog-home .hc-applications-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
+  .blog-home .hc-application-name {font-size:17px;}
+  .blog-home .hc-application-description {font-size:clamp(13px,1.8vw,15px);}
+}
+@media (max-width:540px) {
+  .blog-home .hc-applications-grid {grid-template-columns:1fr;gap:12px;}
+  .blog-home .hc-application-name {font-size:17px;}
+  .blog-home .hc-application-description {font-size:clamp(14px,3.2vw,16px);}
+  .blog-home .hc-application-action {font-size:11px;min-height:44px;}
+  .blog-home .hc-applications-section {margin-bottom:40px;}
+}
+@media (prefers-reduced-motion:reduce) {
+  .blog-home .hc-application-number,
+  .blog-home .hc-application-action {transition:none;}
+}

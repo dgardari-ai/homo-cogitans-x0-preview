@@ -1,0 +1,321 @@
+{
+  "version": "1.5.1",
+  "sourceCommit": "cd8ef7c432c2d5cae537196f09cae67aab59e7ab",
+  "files": [
+    {
+      "path": "app.js",
+      "bytes": 26482,
+      "sha256": "46f20a0060e01a41cd22183f543643f6c7908ef28754f4c43c5b3789fe99f487"
+    },
+    {
+      "path": "application-cards.css",
+      "bytes": 3867,
+      "sha256": "6cd95a5380dec12748e4a4c536620273a5373077cb019579ee420835d691f11c"
+    },
+    {
+      "path": "assets/favicon-x0.svg",
+      "bytes": 526,
+      "sha256": "0f56ed26e171ddc45630930e4abb720934560d650babb7d4a7b646f83d06973f"
+    },
+    {
+      "path": "assets/hero-sculpture-cutout.png",
+      "bytes": 2836084,
+      "sha256": "d875db87b0e2b2057afb0f41d855a3e5094b032a114a830f542c83dcafd1ced6"
+    },
+    {
+      "path": "assets/hero-sculpture-source.jpg",
+      "bytes": 995668,
+      "sha256": "d2677a1a5e89b542ce82a3b05c3b59b71eb3e6df0aebb8363dc1019d82d76d12"
+    },
+    {
+      "path": "assets/hero-sculpture-wordmark.png",
+      "bytes": 1086226,
+      "sha256": "e8af2895c97ef9f70c2229f93d9226fc269102d5476e9b3faaee2eaf3e656dfd"
+    },
+    {
+      "path": "assets/logo-x0-black.png",
+      "bytes": 137067,
+      "sha256": "acd011db32c7e22d20f3dff7cc653ab63a62f876aad3bced436828d807834f55"
+    },
+    {
+      "path": "assets/logo-x0-blue-dark.png",
+      "bytes": 141222,
+      "sha256": "9cc53a5e93c79023405028e5692b31be44db7444d1eacc6a5c7c1ec483037bc1"
+    },
+    {
+      "path": "assets/logo-x0-blue.png",
+      "bytes": 139458,
+      "sha256": "5f99eb7ed977b6c9cc8e0b8a4d6083c8056c077b79c1354b7df5dc3689e57456"
+    },
+    {
+      "path": "assets/logo-x0-orange.png",
+      "bytes": 137610,
+      "sha256": "18c7dadc1ad9499c12f7df33d90f4340c7150f2be61db9c583f3b0fdbdcd37b2"
+    },
+    {
+      "path": "assets/pt-serif/font-17.woff2",
+      "bytes": 34736,
+      "sha256": "a444868f597250ae183007b06e11ef40001e7cbedbc5c2a01068589e436315f1"
+    },
+    {
+      "path": "assets/pt-serif/font-18.woff2",
+      "bytes": 25428,
+      "sha256": "9d1c80c9a947548f5da15b917f693b2b1df148e807c212cce877793d326149c4"
+    },
+    {
+      "path": "assets/pt-serif/font-19.woff2",
+      "bytes": 23224,
+      "sha256": "e03d9090077c76165d69af4d266eccb7bad28091d03244a31def2a711d597062"
+    },
+    {
+      "path": "assets/pt-serif/font-20.woff2",
+      "bytes": 34896,
+      "sha256": "cb373bde18855c82a0ebf2946ea661ebd0be58a7fbabdf20f7744ecd9c0a9cfd"
+    },
+    {
+      "path": "assets/pt-serif/font-21.woff2",
+      "bytes": 30888,
+      "sha256": "61b7a27696c0eedae50935a733460588e59e220a8154e681d59b80fed8a42420"
+    },
+    {
+      "path": "assets/pt-serif/font-22.woff2",
+      "bytes": 22128,
+      "sha256": "050aee25e3462f72c4d357ee964b8df1801e701bae8af275b697581a87c04a48"
+    },
+    {
+      "path": "assets/pt-serif/font-23.woff2",
+      "bytes": 21548,
+      "sha256": "2d7cdb9a975f016db59cb42a61df1b21889842b3ed4e2226f270f4b1349cf704"
+    },
+    {
+      "path": "assets/pt-serif/font-24.woff2",
+      "bytes": 33116,
+      "sha256": "4271064a37f3ffc0aac5f3806db8a72acc23e19447d1804e4e80d8796cbf6330"
+    },
+    {
+      "path": "assets/pt-serif/font-25.woff2",
+      "bytes": 26684,
+      "sha256": "7efb01f9207ed4e39f36438e601867e81e1bf863312bf04a31ed4687a3c73012"
+    },
+    {
+      "path": "assets/pt-serif/font-26.woff2",
+      "bytes": 20916,
+      "sha256": "bec4e724c49bde6d6b3f15038c8015f5dc7c810bdaadd3aee537ab72afc50e4a"
+    },
+    {
+      "path": "assets/pt-serif/font-27.woff2",
+      "bytes": 19492,
+      "sha256": "94cdabe31b8195f0691d18eda86ea1fed049be7cd21eea22c858ad6dd6cc306b"
+    },
+    {
+      "path": "assets/pt-serif/font-28.woff2",
+      "bytes": 29588,
+      "sha256": "bf23a7a4eebedbb87d4084a69496b29815914a18e339a00f5dc73a03c9c9328f"
+    },
+    {
+      "path": "assets/pt-serif/FONT-LICENSES.txt",
+      "bytes": 17637,
+      "sha256": "20503fc1830841cbf8e1b4ede73f040f6615f36ec069db5890b82a9e3292c6f6"
+    },
+    {
+      "path": "assets/pt-serif/fonts.css",
+      "bytes": 3197,
+      "sha256": "f83ca53e3fff38eeba7181087ac2c0816451dfd27cdb30b79191627db89c90a7"
+    },
+    {
+      "path": "assets/x0_1_0_square_v01.webp",
+      "bytes": 301076,
+      "sha256": "d975399f669fc32c3a536bbd76817c4505aa131dd476b5bdd645b3b1ea22b330"
+    },
+    {
+      "path": "assets/x0_2_0_square_v01.webp",
+      "bytes": 279540,
+      "sha256": "094cb9613a4399154c26440b1ae5791c1bb982993f738e5b789e3258b61ad692"
+    },
+    {
+      "path": "assets/x0_3_0_square_v01.webp",
+      "bytes": 218206,
+      "sha256": "305962fcd8ee69afcc4348dd58e3751844bb5faa087b7b580b30de803e2d1869"
+    },
+    {
+      "path": "assets/x0_4_0_square_v01.webp",
+      "bytes": 230624,
+      "sha256": "d819f81355885b681763c0cda2b71a810ba256672fd4fe9a399623d5f84fa403"
+    },
+    {
+      "path": "assets/x0_5_0_square_v01.webp",
+      "bytes": 219072,
+      "sha256": "1e9202acdc0c820f485c01b8e15e4ba56de6c554759acead52b9e83b6125ef56"
+    },
+    {
+      "path": "assets/x0_6_0_square_v01.webp",
+      "bytes": 224066,
+      "sha256": "572ca524f43cc7b571a1581cd60b9dba15bf8e25798ae4bc150149c10c016fe0"
+    },
+    {
+      "path": "blog-home-overrides.css",
+      "bytes": 3245,
+      "sha256": "9faf9cf95bbd72d2aa847be4d09812e06ddcbbc8c667111d9577f66de8b56db3"
+    },
+    {
+      "path": "blog-home.css",
+      "bytes": 22247,
+      "sha256": "13564deb4b193db78d3cc5a2f4b0b72aac6609d93f5d1d09a795a60ed4891667"
+    },
+    {
+      "path": "blog-home.js",
+      "bytes": 11295,
+      "sha256": "e6de88fa03092a651386e5fa454dc4b5ddd63c86f174645ad35ffc2a8b14bb3e"
+    },
+    {
+      "path": "content/manuscript-chapters1-3.txt",
+      "bytes": 112705,
+      "sha256": "f6e00a71bfce6cdad0fb8642314fc53e6a4ba233bece06fe1dd9e26db6f6d117"
+    },
+    {
+      "path": "content/master-conversations.txt",
+      "bytes": 589968,
+      "sha256": "2d8fa643bc81afa54873b8626a7779c77aec41d0a23bd8762a0a41350716aeb5"
+    },
+    {
+      "path": "content/thesis-explanations-v1.json",
+      "bytes": 12878,
+      "sha256": "673be16e337b293000c5d419e18328228829f58ddd620dc8c8799a2389da2a9d"
+    },
+    {
+      "path": "content/thesis-explanations-v2.json",
+      "bytes": 28585,
+      "sha256": "c14af7faceb96a3b3475bde7d41212a814ef0018bd52c614f2c779493f1949e7"
+    },
+    {
+      "path": "content/treatise-v5.2.md",
+      "bytes": 440910,
+      "sha256": "9be7df7990d5810b010618957e1d9f676612af24a495811adb0fc9cc40d253af"
+    },
+    {
+      "path": "essay-book1.json",
+      "bytes": 850330,
+      "sha256": "c2d257be509cc8dc4363d3b42efcf377c4ea71f0f722b04ed0a79867594b9075"
+    },
+    {
+      "path": "essay-book2.json",
+      "bytes": 562807,
+      "sha256": "9da699b86b8d51ba14ac4f91112c6dac3ae72687ffbdf8acf5e977c122073ba0"
+    },
+    {
+      "path": "essays-index.js",
+      "bytes": 11732,
+      "sha256": "cda81ae28496a67f3d4c287a370c2b64e124bf6eebdc8bdedf5b98bf8b341a79"
+    },
+    {
+      "path": "essays-outline.js",
+      "bytes": 1872,
+      "sha256": "81c1fa70cab58a20ef5cbf38baba32854b5634074c059dca54a84418ec034f89"
+    },
+    {
+      "path": "essays-reader.css",
+      "bytes": 872,
+      "sha256": "265a1b6410737ea2ce913dcccd4cd987db68eb7b0784508d4026e095e68d44a8"
+    },
+    {
+      "path": "essays-reader.js",
+      "bytes": 6468,
+      "sha256": "162910decc2c6be45d09d96eb47eea418d7c271025ede0013889a37700ec3c28"
+    },
+    {
+      "path": "forms-accordion.css",
+      "bytes": 1840,
+      "sha256": "3d7183343db09a2d7371cf7a01efad9a698080f09dcb63e6b1570f1cc5b45b76"
+    },
+    {
+      "path": "forms-accordion.js",
+      "bytes": 4656,
+      "sha256": "d989e3c828e3351ddf10df5b34bcf3560b9441df89d3bbcda6f2db2d9bf7e913"
+    },
+    {
+      "path": "home-hero.css",
+      "bytes": 6873,
+      "sha256": "b63314ce53b69c41689d9f74918bfde608dac123fdbb98343384c680b7aae09d"
+    },
+    {
+      "path": "home-section-folds.js",
+      "bytes": 789,
+      "sha256": "821803ab0fa04f00982df351b55a3db0df43b01b15fa78210db83415a68730a9"
+    },
+    {
+      "path": "index.html",
+      "bytes": 53209,
+      "sha256": "28226c82bcdb363da47d58703f0758df2aff1543fabaca81c4e85e6ec1ac82ac"
+    },
+    {
+      "path": "intro-logo.css",
+      "bytes": 1325,
+      "sha256": "40bfe2b17cf04a64933e1f4f6e505df5751e0e8df41c8e3c29576293e7d737f6"
+    },
+    {
+      "path": "logo.css",
+      "bytes": 859,
+      "sha256": "b16b9447bbaf15df1802c945938e44fb01f220bafc1430f205210c8abac03752"
+    },
+    {
+      "path": "research-content.js",
+      "bytes": 23689,
+      "sha256": "58cdb9335544b84c835bbf6b1acf8397816bb9a74d6509e79d438ca143d6e7c3"
+    },
+    {
+      "path": "research-home.css",
+      "bytes": 21903,
+      "sha256": "c0d5fed603a2b0a9f1412a0d9a5f58dbec69351bf2dc93734d51c511ec943f47"
+    },
+    {
+      "path": "research-home.js",
+      "bytes": 17272,
+      "sha256": "81071a6bf27c876fbb144d204100a0595179208d6241d59f019e256ad20f6ec0"
+    },
+    {
+      "path": "research-panels.css",
+      "bytes": 15895,
+      "sha256": "1cab509ce55d210b8abdc4f45ed0e5d011ed9bf0e1177c0af20ff3884cc9b03c"
+    },
+    {
+      "path": "research-panels.js",
+      "bytes": 34856,
+      "sha256": "79bfc385c1511eb5e6ecd23061071e3fe5ac4ac623316de5a0a9b38c0b5941a0"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 33306,
+      "sha256": "70e0169b63c27a21184265badc19d9eae78c3085558198abab50e728d396da7c"
+    },
+    {
+      "path": "text-display.js",
+      "bytes": 2495,
+      "sha256": "1eff3bd5da70968943adc72cd7df365621f53a7ed6b97371211d7fc3c8443cca"
+    },
+    {
+      "path": "text-index.js",
+      "bytes": 17515,
+      "sha256": "dab4ecd2c6ffd27363a775117d8f41a9e70967ca538735de529946250d22379e"
+    },
+    {
+      "path": "text-reader.css",
+      "bytes": 3904,
+      "sha256": "d9b319d79538ef0c5031031612d0cc735d0bf1497def0e5e9ba26c9d472c90a5"
+    },
+    {
+      "path": "text-reader.js",
+      "bytes": 7959,
+      "sha256": "e75378cc2b59b9f6ef4c033d595f208dd46b53eb981d1770e6dcae5e49a3a689"
+    },
+    {
+      "path": "theses-accordion.css",
+      "bytes": 6002,
+      "sha256": "00ab2e30cf6cb4a27ccd61d07d758e87d3190a840151ae2d559a803287c45572"
+    },
+    {
+      "path": "theses-accordion.js",
+      "bytes": 4466,
+      "sha256": "3df97bfaf4dcfb63105030f293ef51adcf3b51ef5cb07f7c6e9aed43d2ba6681"
+    }
+  ]
+}

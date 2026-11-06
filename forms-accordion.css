@@ -1,0 +1,60 @@
+/* Blog Gardari accordion slider (dgardari-ai/gardari-blog-preview,
+   commit 87681fc8585c9d55f9c41412fc16ad9e06b54a97).
+   Its original panel, image, overlay, caption and transition rules are inherited
+   from blog-home.css. Only the geometry for six panels is adapted here. */
+.blog-home.hc-research-home .hc-forms-accordion {
+  margin-top:24px;
+  margin-bottom:24px;
+}
+.blog-home .hc-forms-accordion .accordion-track {
+  /* The expanded panel remains square; the total strip keeps its original width. */
+  height:calc(42.5cqw - 17px);
+}
+.blog-home .hc-forms-accordion .accordion-panel {
+  flex:0 0 calc(11.5cqw - 6.6px);
+}
+.blog-home .hc-forms-accordion .accordion-panel.is-open {
+  flex-basis:calc(42.5cqw - 17px);
+}
+.blog-home .hc-forms-accordion .panel-activate {
+  cursor:pointer;
+}
+.blog-home .hc-forms-accordion .panel-stage-number {
+  display:block;
+  margin-bottom:-3px;
+  color:#fff;
+  font:400 49px/.95 var(--mono);
+  font-variant-numeric:tabular-nums;
+  letter-spacing:0;
+  white-space:nowrap;
+  text-shadow:0 1px 12px rgba(0,0,0,.25);
+}
+.blog-home .hc-forms-accordion .panel-caption strong {
+  font-size:clamp(21px, 2.6vw, 30px);
+  overflow-wrap:break-word;
+}
+.blog-home .hc-forms-accordion .panel-caption > span {
+  font-size:13px;
+  line-height:1.28;
+}
+@media (max-width:680px) {
+  .blog-home.hc-research-home .hc-forms-accordion {
+    margin-top:18px;
+    margin-bottom:18px;
+  }
+  .blog-home .hc-forms-accordion .accordion-track {
+    height:auto;
+  }
+  .blog-home .hc-forms-accordion .accordion-panel,
+  .blog-home .hc-forms-accordion .accordion-panel.is-open {
+    flex:0 0 min(64.6vw, 302px);
+    height:auto;
+    aspect-ratio:1;
+  }
+  .blog-home .hc-forms-accordion .panel-caption strong {
+    font-size:clamp(20px, 5.4vw, 26px);
+  }
+  .blog-home .hc-forms-accordion .panel-caption > span {
+    font-size:12px;
+  }
+}
